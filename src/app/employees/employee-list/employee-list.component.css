@@ -1,0 +1,9 @@
+.color {
+    color: white;
+    font-weight: bold;
+    background-color: red;
+  }
+  .chartContainer{
+    width: 500px;
+    height: 500px;
+  }
