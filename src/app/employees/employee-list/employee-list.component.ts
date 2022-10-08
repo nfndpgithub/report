@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Worker } from 'src/app/model';
+
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../epmloyee.model';
 import { Chart } from 'chart.js';
