@@ -8,13 +8,13 @@ export class Employee {
   public EntryNotes: string;
   public WorkingHours: number;
   public DeletedOn?: Time;
-  constructor(data: any) {
+  constructor(data: any, workingHours: number) {
     this.Id = data.Id;
     this.EmployeeName = data.EmployeeName;
     this.StarTimeUtc = data.StarTimeUtc;
     this.EndTimeUtc = data.EndTimeUtc;
     this.EntryNotes = data.EntryNotes;
     this.DeletedOn = data.DeletedOn;
-    this.WorkingHours = 0;
+    this.WorkingHours = workingHours;
   }
 }

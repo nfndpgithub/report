@@ -32,7 +32,12 @@ export class EmployeeService {
           );
 
           index === -1
-            ? await this.employees.push(new Employee(values))
+            ? await this.employees.push(
+                new Employee(
+                  values,
+                  this.calculateDiff(values.StarTimeUtc, values.EndTimeUtc)
+                )
+              )
             : (this.employees[index].WorkingHours += this.calculateDiff(
                 values.StarTimeUtc,
                 values.EndTimeUtc
