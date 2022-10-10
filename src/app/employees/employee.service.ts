@@ -8,7 +8,8 @@ import { Employee } from './epmloyee.model';
   providedIn: 'root',
 })
 export class EmployeeService {
-  employees: Employee[] = [];
+  e: Array<Employee> = [];
+  employees: Array<Employee> = [];
 
   constructor() {}
   httpOpitons = {
@@ -25,13 +26,13 @@ export class EmployeeService {
         return data.json();
       })
       .then((objectData) => {
-        objectData.map((values: any) => {
+        objectData.map(async (values: any) => {
           var index = this.employees.findIndex(
             (e) => e.EmployeeName === values.EmployeeName
           );
 
           index === -1
-            ? this.employees.push(new Employee(values))
+            ? await this.employees.push(new Employee(values))
             : (this.employees[index].WorkingHours += this.calculateDiff(
                 values.StarTimeUtc,
                 values.EndTimeUtc
@@ -39,7 +40,7 @@ export class EmployeeService {
           this.employees.sort((a, b) => b.WorkingHours - a.WorkingHours);
         });
       });
-
+    console.log(JSON.stringify(this.employees));
     return this.employees;
   }
 

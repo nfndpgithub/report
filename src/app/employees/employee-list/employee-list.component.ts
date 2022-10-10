@@ -50,7 +50,12 @@ export class EmployeeListComponent implements OnInit {
     this.initializeChart();
   }
   //nije htelo da se  iz liste uzmu brojevi i imena pa sam rucno upisao  :///
-  initializeChart() {
+  async initializeChart() {
     this.chartSeries = [208, 203, 202, 197, 166, 161, 161, 112, 97, 83, 30];
+    //ne radi
+    this.employeeList.forEach(async (element) => {
+      await this.chartSeries.push(element.WorkingHours);
+      await this.chartLabels.push(element.EmployeeName);
+    });
   }
 }
